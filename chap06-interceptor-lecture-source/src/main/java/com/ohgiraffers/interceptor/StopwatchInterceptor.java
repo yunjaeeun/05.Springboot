@@ -16,11 +16,12 @@ import org.springframework.web.servlet.ModelAndView;
  *  필터 -> 인터셉터 방향으로 진행된다.
  *   필터는 bean들을 건들 수 없지만 interceptor는 bean을 건들 수 있다.(bean이기 때문에 건너 뛰어서 조작 가능)
  *   인터셉터는 핸들러메소드보다 먼저 실행되기 때문에 실행될 핸들러 메소드를 선택 가능하다.
+ *   필터는 Servlet에서 작동하고 Interceptor는 IOC에서 작동
 * */
 @Configuration      // 인터셉터: 서블릿에서 필터가 걸러준다면 스프링컨테이너에선 인터셉터가 걸러줌(전처리 후처리)
 public class StopwatchInterceptor implements HandlerInterceptor {
 
-    /* 설명. 필터와 달리 인터셉터는 빈을 활용할 수 있다.(생성자 주입 활용) */
+    /* 설명. 필터와 달리 인터셉터는 빈을 활용할 수 있다.(생성자 주입 활용, ) */
     private final MenuService MENUSERVICE;
 
     @Autowired
